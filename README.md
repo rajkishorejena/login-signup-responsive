@@ -1,6 +1,6 @@
 # React Web Application with Authentication
 
-This project is a boilerplate for creating a responsive web application with user authentication using React. It includes popular libraries like Tailwind CSS, React Router, Redux Toolkit, Redux Persist, and React Toastify.
+This project is a web application with user authentication using React. It includes popular libraries like Tailwind CSS, React Router, Redux Toolkit, Redux Persist, and React Toastify.
 
 ## Features
 
