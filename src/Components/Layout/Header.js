@@ -1,10 +1,12 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import {useNavigate} from "react-router-dom"
 import {addCurrentUser} from "../../Redux/Slice/UserInfoSlice"
 const Header = () => {
-    const dispatch = useDispatch();
+ const dispatch = useDispatch();
  const navigate =  useNavigate();
+ const { currentUser } = useSelector((state) => state.userInfo);
+
 
   const handleLogout = () =>{
     dispatch(addCurrentUser(null));
@@ -34,8 +36,8 @@ const Header = () => {
 
       {/* User Info */}
       <div>
-        <div className="text-sm font-semibold text-gray-600">John Doe</div>
-        <div className="text-xs text-gray-500">john.doe@example.com</div>
+        <div className="text-sm font-semibold text-gray-600">{currentUser?.userName}</div>
+        <div className="text-xs text-gray-500">{currentUser?.email}</div>
       </div>
       <button
         className="text-gray-500 hover:text-gray-700 focus:outline-none"
