@@ -22,7 +22,6 @@ function App() {
     path:"/signup",
     element:<SignUp/>,
     errorElement:<Error/>,
-    loader:checkAuthLoader()
   },
   {
     path:"/",
