@@ -20,11 +20,15 @@ const LoginCard = () => {
   const { users } = useSelector((state) => state.userInfo);
 
   const handleSubmit = async(values, { setSubmitting }) => {
-    // console.log("Form submitted successfully!", values);
+    console.log("Form submitted successfully!", values);
 
     const response = users.filter(
       (user) => user.email === values.email
     );
+
+    if(response.length<1){
+    toast.error("User Is Not Exists"); 
+    }
 
     const hashedPassword = await bcrypt.compare(values.password,response[0].password,)
     if (response.length && hashedPassword) {

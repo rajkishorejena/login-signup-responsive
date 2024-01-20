@@ -1,6 +1,6 @@
 
 import './App.css';
-import {RouterProvider, createBrowserRouter} from "react-router-dom";
+import {RouterProvider, createBrowserRouter, redirect} from "react-router-dom";
 import Login from './Pages/Login';
 import SignUp from './Pages/Signup';
 import Error from './Pages/Error';
@@ -9,6 +9,7 @@ import Layout from './Components/Layout/Layout';
 import { useSelector } from "react-redux"
 import { checkAuthLoader } from './Utils/Auth';
 import Profile from './Pages/Profile';
+import AuthRoutes from './Routes/AuthRoutes';
 
 function App() {
   // const { currentUser } = useSelector((state) => state.userInfo);
@@ -16,13 +17,19 @@ function App() {
  const routes = createBrowserRouter([
   {
     path:"/",
-    element:<Login/>,
+    element:<AuthRoutes/>,
     errorElement:<Error/>,
-  },
-  {
-    path:"/signup",
-    element:<SignUp/>,
-    errorElement:<Error/>,
+    children:[
+      {
+        path:"/",
+        element:<Login/>,   
+      },
+      {
+        path:"/signup",
+        element:<SignUp/>,
+      },
+    ]
+
   },
   {
     path:"/",
