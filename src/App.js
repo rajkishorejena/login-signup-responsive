@@ -8,6 +8,7 @@ import Dashboard from './Pages/Dashboard';
 import Layout from './Components/Layout/Layout';
 import { useSelector } from "react-redux"
 import { checkAuthLoader } from './Utils/Auth';
+import Profile from './Pages/Profile';
 
 function App() {
   // const { currentUser } = useSelector((state) => state.userInfo);
@@ -31,6 +32,10 @@ function App() {
       {
         path:"/dashboard",
         element:<Dashboard/>,
+      },
+      {
+        path:"/profile",
+        element:<Profile/>,
       }
     ]
   }
